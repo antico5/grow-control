@@ -1,6 +1,10 @@
 class ReadingsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
+  def index
+    @readings = Reading.order :created_at
+  end
+
   def create
     Reading.create! permitted_params
     render nothing: true, status: 200

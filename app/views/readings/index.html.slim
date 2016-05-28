@@ -1,0 +1,12 @@
+table
+  tr
+    th Date
+    th Time
+    th Humidity
+    th Temperature
+  - @readings.each do |reading|
+    tr
+      td = reading.created_at.strftime "%d %b"
+      td = reading.created_at.strftime "%H:%M"
+      td = reading.humidity
+      td = reading.temperature
