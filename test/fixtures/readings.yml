@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  grow_name: MyString
+  humidity: 1.5
+  temperature: 1.5
+
+two:
+  grow_name: MyString
+  humidity: 1.5
+  temperature: 1.5
