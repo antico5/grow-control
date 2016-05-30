@@ -14,5 +14,5 @@ table.log_table
     tr
       td = reading.created_at.in_time_zone('Buenos Aires').strftime "%d %b"
       td = reading.created_at.in_time_zone('Buenos Aires').strftime "%H:%M"
-      td = reading.humidity
-      td = reading.temperature
+      td.humidity = reading.humidity
+      td.temperature = reading.temperature

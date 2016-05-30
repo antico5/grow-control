@@ -14,18 +14,23 @@
  *= require_self
  */
 
-.humidity {
+body {
+  font-family: arial;
+}
+
+div.humidity {
   color: lightblue;
-  size: 48px;
+  size: 64px;
   text-align: center;
   width: 100%;
 }
  
-.temperature {
+div.temperature {
   margin-top: 100px;
   margin-bottom: 20px;
   color: red;
-  size: 48px;
+  font-size: 64px;
+  width: 100%;
 }
 
 table.log_table{
@@ -35,8 +40,9 @@ table.log_table{
 
 .log_table td {
   min-width: 100px;
-  background-color: #CCC;
+  background-color: #DDD;
   border: 1px white solid;
+  text-align: center;
 }
 
 .log_table td .humidity {
