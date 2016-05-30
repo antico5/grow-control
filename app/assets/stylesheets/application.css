@@ -19,8 +19,8 @@ body {
 }
 
 div.humidity {
-  color: lightblue;
-  font-size: 64px;
+  color: #483;
+  font-size: 100px;
   text-align: center;
   width: 100%;
 }
@@ -29,7 +29,7 @@ div.temperature {
   margin-top: 100px;
   margin-bottom: 20px;
   color: red;
-  font-size: 64px;
+  font-size: 100px;
   width: 100%;
   text-align: center;
 }
@@ -47,7 +47,7 @@ table.log_table{
 }
 
 .log_table td.humidity {
-  color: lightblue;
+  color: #483;
 }
 
 .log_table td.temperature {
