@@ -1,8 +1,8 @@
 .temperature
-  = @last_reading.temperature + '%'
+  = @last_reading.temperature.to_s + '%'
 
 .humidity
-  = @last_reading.humidity + ' C'
+  = @last_reading.humidity.to_s + ' C'
 
 table.log_table
   tr
