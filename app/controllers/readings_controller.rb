@@ -3,6 +3,7 @@ class ReadingsController < ApplicationController
 
   def index
     @readings = Reading.order :created_at => 'desc'
+    @last_reading = Reading.last
   end
 
   def create
