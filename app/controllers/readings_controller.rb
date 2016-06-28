@@ -2,7 +2,7 @@ class ReadingsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @readings = Reading.order :created_at => 'desc'
+    @readings = Reading.order(:created_at => 'desc').limit 300
     @last_reading = Reading.last
   end
 
