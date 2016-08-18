@@ -8,7 +8,7 @@ class ReadingsController < ApplicationController
 
   def create
     last_reading_time = Reading.last.try :created_at || 0
-    if Time.now - last_reading_time >= 10.minutes
+    if Time.now - last_reading_time >= 60.minutes
     	Reading.create! permitted_params
     end
     render nothing: true, status: 200
