@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160818120236) do
+ActiveRecord::Schema.define(version: 20160818132904) do
 
   create_table "failed_readings", force: :cascade do |t|
     t.string   "grow_name"
@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(version: 20160818120236) do
   end
 
   create_table "readings", force: :cascade do |t|
-    t.string   "grow_name"
     t.float    "humidity"
     t.float    "temperature"
     t.datetime "created_at",  null: false
