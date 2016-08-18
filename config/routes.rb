@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :grows
   post 'reading' => 'readings#create'
 
+  get 'grows/:grow_id/readings' => 'readings#index'
   root 'readings#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
