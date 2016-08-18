@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :grows
   post 'reading' => 'readings#create'
 
   root 'readings#index'
