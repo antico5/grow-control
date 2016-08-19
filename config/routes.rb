@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  resources :grows
+  resources :grows do
+    member do
+      get '/' => 'readings#index'
+      get '/chart_data' => 'readings#chart_data', as: 'chart_data'
+      get '/period_count' => 'readings#period_count', as: 'period_count'
+    end
+  end
   post 'reading' => 'readings#create'
-
-  get 'grows/:grow_id/readings' => 'readings#index'
-  root 'readings#index'
+  get '/' => redirect('/grows/1')
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

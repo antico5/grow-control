@@ -27,6 +27,17 @@ class ReadingsController < ApplicationController
     end
   end
 
+  def period_count
+    case params[:periodicity]
+    when 'weekly'
+      render json: @grow.total_weeks
+    when 'daily'
+      render json: @grow.total_days
+    else
+      render nothing: true, status: 404
+    end
+  end
+
   private
 
   def permitted_params
