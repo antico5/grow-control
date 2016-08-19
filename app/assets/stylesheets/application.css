@@ -23,10 +23,11 @@ div.humidity {
   font-size: 100px;
   text-align: center;
   width: 100%;
+  margin-bottom: 50px;
 }
- 
+
 div.temperature {
-  margin-top: 100px;
+  margin-top: 30px;
   margin-bottom: 20px;
   color: red;
   font-size: 100px;
@@ -52,4 +53,10 @@ table.log_table{
 
 .log_table td.temperature {
   color: red;
+}
+
+#chart {
+  width: 80%;
+  height: 400px;
+  margin: 0px auto;
 }
