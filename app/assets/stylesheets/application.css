@@ -55,6 +55,21 @@ table.log_table{
   color: red;
 }
 
+.button-bar {
+  text-align: center;
+}
+
+a.button {
+  margin: 3px;
+  padding: 10px;
+  background: #eee;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  color: #555;
+  display: inline-block;
+}
+
 #chart {
   width: 80%;
   height: 400px;

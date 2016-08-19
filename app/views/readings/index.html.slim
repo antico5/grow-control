@@ -1,3 +1,6 @@
+// Data attributes
+= tag :div, id: 'chart_data_endpoint', data: { endpoint: @chart_data_endpoint }
+
 .temperature
   = 'Tmp:  ' + @last_reading.temperature.to_s + ' C'
 
@@ -16,6 +19,11 @@
 //      td = reading.created_at.in_time_zone('Buenos Aires').strftime "%H:%M"
 //      td.humidity = reading.humidity
 //      td.temperature = reading.temperature
-= tag :div, id: 'chart_data', data: @grow.reading_data_for_chart
+.button-bar#periodicity
+  a.button#weekly href='#' Weekly
+  a.button#daily href='#' Daily
+.button-bar#periods
+  // Buttons will be appended here depending on how many weeks of current grow
+
 #chart
   canvas#myChart
