@@ -5,6 +5,7 @@ class ReadingsController < ApplicationController
   def index
     @readings = @grow.readings.order(:created_at => 'desc').limit 300
     @last_reading = @readings.last
+    @chart_data_endpoint = chart_data_grow_path(@grow)
   end
 
   def create
@@ -18,11 +19,19 @@ class ReadingsController < ApplicationController
     render nothing: true, status: 400
   end
 
-  def permitted_params
-    params.permit :humidity, :temperature
+  def chart_data
+    if params[:periodicity] == 'weekly'
+      render json: @grow.chart_data(@grow.readings_for_week params[:index].to_i)
+    else
+      render nothing: true
+    end
   end
 
   private
+
+  def permitted_params
+    params.permit :humidity, :temperature
+  end
 
   def set_grow
     if params[:grow_id]
