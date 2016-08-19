@@ -4,15 +4,18 @@
 .humidity
   = 'Hum: ' + @last_reading.humidity.to_s + '%'
 
-table.log_table
-  tr
-    th Date
-    th Time
-    th Humidity
-    th Temperature
-  - @readings.each do |reading|
-    tr
-      td = reading.created_at.in_time_zone('Buenos Aires').strftime "%d %b"
-      td = reading.created_at.in_time_zone('Buenos Aires').strftime "%H:%M"
-      td.humidity = reading.humidity
-      td.temperature = reading.temperature
+//table.log_table
+//  tr
+//    th Date
+//    th Time
+//    th Humidity
+//    th Temperature
+//  - @readings.each do |reading|
+//    tr
+//      td = reading.created_at.in_time_zone('Buenos Aires').strftime "%d %b"
+//      td = reading.created_at.in_time_zone('Buenos Aires').strftime "%H:%M"
+//      td.humidity = reading.humidity
+//      td.temperature = reading.temperature
+= tag :div, id: 'chart_data', data: @grow.reading_data_for_chart
+#chart
+  canvas#myChart
