@@ -20,12 +20,13 @@ set_periodicity = (periodicity) ->
 
 set_period = (period) ->
   $.get('chart_data', periodicity: window.periodicity, index: period, (data) ->
-    build_chart(data)
+    build_temperature_chart(data)
+    build_humidity_chart(data)
   )
 
-build_chart = (data) ->
-  ctx = document.getElementById("myChart").getContext("2d")
-  myChart = new Chart(ctx,
+build_temperature_chart = (data) ->
+  ctx = document.getElementById("temperatureChart").getContext("2d")
+  new Chart(ctx,
     type: 'line'
     data:
       labels: data.timestamps
@@ -33,7 +34,7 @@ build_chart = (data) ->
         label: 'Temperature'
         data: data.temperatures
         fill: false
-        borderColor: "lightblue"
+        borderColor: "pink"
       } ]
     options:
       maintainAspectRatio: false
@@ -47,5 +48,32 @@ build_chart = (data) ->
             suggestedMax: 35
         ]
       legend:
-        display: false
+        display: true
+  )
+
+build_humidity_chart = (data) ->
+  ctx = document.getElementById("humidityChart").getContext("2d")
+  new Chart(ctx,
+    type: 'line'
+    data:
+      labels: data.timestamps
+      datasets: [ {
+        label: 'Humidity'
+        data: data.humidities
+        fill: false
+        borderColor: "lightblue"
+      } ]
+    options:
+      maintainAspectRatio: false
+      scales:
+        xAxes: [
+          display: false
+        ]
+        yAxes: [
+          ticks:
+            suggestedMin: 40
+            suggestedMax: 90
+        ]
+      legend:
+        display: true
   )
