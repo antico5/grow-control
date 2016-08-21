@@ -70,8 +70,13 @@ a.button {
   display: inline-block;
 }
 
-#chart {
-  width: 80%;
+.col-50 {
+  display: inline-block;
+  width: 49%;
+}
+
+.chart {
+  width: 90%;
   height: 400px;
   margin: 0px auto;
 }
