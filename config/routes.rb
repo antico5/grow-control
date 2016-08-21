@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   resources :grows do
     member do
       get '/' => 'readings#index'
-      get '/chart_data' => 'readings#chart_data', as: 'chart_data'
-      get '/period_count' => 'readings#period_count', as: 'period_count'
+      get 'chart_data'
+      get 'period_count'
     end
   end
   post 'reading' => 'readings#create'

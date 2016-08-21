@@ -3,9 +3,7 @@ class ReadingsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def index
-    @readings = @grow.readings.order(:created_at => 'desc').limit 300
-    @last_reading = @readings.last
-    @chart_data_endpoint = chart_data_grow_path(@grow)
+    @last_reading = @grow.readings.last
   end
 
   def create
@@ -17,25 +15,6 @@ class ReadingsController < ApplicationController
   rescue
     FailedReading.create! permitted_params
     render nothing: true, status: 400
-  end
-
-  def chart_data
-    if params[:periodicity] == 'weekly'
-      render json: @grow.chart_data(@grow.readings_for_week params[:index].to_i)
-    else
-      render nothing: true
-    end
-  end
-
-  def period_count
-    case params[:periodicity]
-    when 'weekly'
-      render json: @grow.total_weeks
-    when 'daily'
-      render json: @grow.total_days
-    else
-      render nothing: true, status: 404
-    end
   end
 
   private

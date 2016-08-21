@@ -1,5 +1,5 @@
 class GrowsController < ApplicationController
-  before_action :set_grow, only: [:show, :edit, :update, :destroy]
+  before_action :set_grow, only: [:show, :edit, :update, :destroy, :period_count, :chart_data]
 
   # GET /grows
   def index
@@ -43,6 +43,25 @@ class GrowsController < ApplicationController
   def destroy
     @grow.destroy
     redirect_to grows_url, notice: 'Grow was successfully destroyed.'
+  end
+
+  def chart_data
+    if params[:periodicity] == 'weekly'
+      render json: @grow.chart_data(@grow.readings_for_week params[:index].to_i)
+    else
+      render nothing: true
+    end
+  end
+
+  def period_count
+    case params[:periodicity]
+    when 'weekly'
+      render json: @grow.total_weeks
+    when 'daily'
+      render json: @grow.total_days
+    else
+      render nothing: true, status: 404
+    end
   end
 
   private
