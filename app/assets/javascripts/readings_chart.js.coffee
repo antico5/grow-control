@@ -1,22 +1,23 @@
 $ ->
-  set_periodicity('weekly')
-
-set_handlers = ->
+  #periodicity buttons handler
   $('#periodicity a').on 'click', ->
     set_periodicity(this.id)
-
-  $('#periods a').on 'click', ->
-    set_period(this.text)
+  #set default periodicity as weekly
+  set_periodicity('weekly')
 
 set_periodicity = (periodicity) ->
   window.periodicity = periodicity
   $.get('period_count', periodicity: periodicity, (period_count) ->
-    $('#periods').empty()
-    for i in [1 .. period_count]
-      $('#periods').append "<a href='#' class='button'>#{i}</a>"
-    set_handlers()
+    create_period_buttons(period_count)
     set_period(period_count) # show last period by default
   )
+
+create_period_buttons = (period_count) ->
+  $('#periods').empty()
+  for i in [1 .. period_count]
+    $('#periods').append "<a href='#' class='button'>#{i}</a>"
+  $('#periods a').on 'click', ->
+    set_period(this.text)
 
 set_period = (period) ->
   $.get('chart_data', periodicity: window.periodicity, index: period, (data) ->
