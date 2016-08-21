@@ -46,6 +46,7 @@ build_temperature_chart = (data) ->
           ticks:
             suggestedMin: 15
             suggestedMax: 35
+            stepSize: 5
         ]
       legend:
         display: true
@@ -73,6 +74,7 @@ build_humidity_chart = (data) ->
           ticks:
             suggestedMin: 40
             suggestedMax: 90
+            stepSize: 10
         ]
       legend:
         display: true

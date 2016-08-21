@@ -16,6 +16,15 @@
 
 body {
   font-family: arial;
+  margin: 0px;
+  background: #ccc;
+}
+
+.container {
+  border: 1px solid darkgreen;
+  background-color: #eee;
+  width: 90%;
+  margin: 0px auto;
 }
 
 div.humidity {
@@ -27,7 +36,6 @@ div.humidity {
 }
 
 div.temperature {
-  margin-top: 20px;
   margin-bottom: 15px;
   color: red;
   font-size: 40px;
@@ -56,6 +64,7 @@ table.log_table{
 }
 
 .button-bar {
+  border-top: 1px solid lightgreen;
   text-align: center;
 }
 
