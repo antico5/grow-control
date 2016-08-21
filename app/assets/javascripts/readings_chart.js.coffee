@@ -44,7 +44,7 @@ build_chart = (data) ->
         yAxes: [
           ticks:
             suggestedMin: 15
-            suggestedMax: 40
+            suggestedMax: 35
         ]
       legend:
         display: false
