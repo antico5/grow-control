@@ -1,22 +1,27 @@
 $ ->
-  set_handlers()
+  set_periodicity('weekly')
 
 set_handlers = ->
   $('#periodicity a').on 'click', ->
-    window.periodicity = this.id
-    $.get('period_count', periodicity: window.periodicity, (period_count) ->
-      $('#periods').empty()
-      for i in [1 .. period_count]
-        $('#periods').append "<a href='#' class='button'>#{i}</a>"
-      set_handlers()
-    )
+    set_periodicity(this.id)
 
   $('#periods a').on 'click', ->
-    $.get('chart_data', periodicity: window.periodicity, index: this.text, (data) ->
-      build_chart(data)
-    )
+    set_period(this.text)
 
+set_periodicity = (periodicity) ->
+  window.periodicity = periodicity
+  $.get('period_count', periodicity: periodicity, (period_count) ->
+    $('#periods').empty()
+    for i in [1 .. period_count]
+      $('#periods').append "<a href='#' class='button'>#{i}</a>"
+    set_handlers()
+    set_period(period_count) # show last period by default
+  )
 
+set_period = (period) ->
+  $.get('chart_data', periodicity: window.periodicity, index: period, (data) ->
+    build_chart(data)
+  )
 
 build_chart = (data) ->
   ctx = document.getElementById("myChart").getContext("2d")
