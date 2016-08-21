@@ -7,12 +7,12 @@ class Grow < ActiveRecord::Base
       humidities: readings.pluck(:humidity) }
   end
 
-  def readings_for_week week
-    index = week - 1
-    from_date = start_date + index.weeks
-    to_date = from_date + 1.week
-    readings.where(created_at: from_date .. to_date)
-      .select(:created_at, :temperature, :humidity)
+  def readings_for_week index
+    readings_for :week, index
+  end
+
+  def readings_for_day index
+    readings_for :day, index
   end
 
   def total_weeks
@@ -29,5 +29,13 @@ class Grow < ActiveRecord::Base
     last_reading = readings.maximum :created_at
     first_reading = readings.minimum :created_at
     (last_reading - first_reading).to_f
+  end
+
+  def readings_for time_unit, index
+    index -= 1
+    from_date = start_date + index.send(time_unit)
+    to_date = from_date + 1.send(time_unit)
+    readings.where(created_at: from_date .. to_date)
+      .select(:created_at, :temperature, :humidity)
   end
 end

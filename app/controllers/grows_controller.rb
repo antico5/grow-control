@@ -40,8 +40,11 @@ class GrowsController < ApplicationController
   end
 
   def chart_data
-    if params[:periodicity] == 'weekly'
+    case params[:periodicity]
+    when 'weekly'
       render json: @grow.chart_data(@grow.readings_for_week params[:index].to_i)
+    when 'daily'
+      render json: @grow.chart_data(@grow.readings_for_day params[:index].to_i)
     else
       render nothing: true
     end
