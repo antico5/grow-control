@@ -2,8 +2,8 @@ $ ->
   #periodicity buttons handler
   $('#periodicity a').on 'click', ->
     set_periodicity(this.id)
-  #set default periodicity as weekly
-  set_periodicity('weekly')
+  #set default periodicity as daily
+  set_periodicity('daily')
 
 set_periodicity = (periodicity) ->
   window.periodicity = periodicity
