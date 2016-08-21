@@ -2,10 +2,6 @@ class ReadingsController < ApplicationController
   before_action :set_grow
   skip_before_action :verify_authenticity_token
 
-  def index
-    @last_reading = @grow.readings.last
-  end
-
   def create
     last_reading_time = @grow.readings.last.try(:created_at) || Time.at(0)
     if Time.now - last_reading_time >= 60.minutes

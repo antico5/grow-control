@@ -1,0 +1,18 @@
+.temperature
+  = 'Tmp:  ' + @last_reading.temperature.to_s + ' C'
+
+.humidity
+  = 'Hum: ' + @last_reading.humidity.to_s + '%'
+
+.button-bar#periodicity
+  a.button#weekly href='#' Weekly
+  a.button#daily href='#' Daily
+
+.button-bar#periods
+
+.col-50
+  .chart
+    canvas#temperatureChart
+.col-50
+  .chart
+    canvas#humidityChart

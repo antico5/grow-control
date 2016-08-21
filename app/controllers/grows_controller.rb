@@ -1,25 +1,21 @@
 class GrowsController < ApplicationController
   before_action :set_grow, only: [:show, :edit, :update, :destroy, :period_count, :chart_data]
 
-  # GET /grows
   def index
     @grows = Grow.all
   end
 
-  # GET /grows/1
   def show
+    @last_reading = @grow.readings.last
   end
 
-  # GET /grows/new
   def new
     @grow = Grow.new
   end
 
-  # GET /grows/1/edit
   def edit
   end
 
-  # POST /grows
   def create
     @grow = Grow.new(grow_params)
 
@@ -30,7 +26,6 @@ class GrowsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /grows/1
   def update
     if @grow.update(grow_params)
       redirect_to @grow, notice: 'Grow was successfully updated.'
@@ -39,7 +34,6 @@ class GrowsController < ApplicationController
     end
   end
 
-  # DELETE /grows/1
   def destroy
     @grow.destroy
     redirect_to grows_url, notice: 'Grow was successfully destroyed.'
