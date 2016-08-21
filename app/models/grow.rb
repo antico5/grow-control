@@ -37,5 +37,6 @@ class Grow < ActiveRecord::Base
     to_date = from_date + 1.send(time_unit)
     readings.where(created_at: from_date .. to_date)
       .select(:created_at, :temperature, :humidity)
+      .order(:created_at)
   end
 end
