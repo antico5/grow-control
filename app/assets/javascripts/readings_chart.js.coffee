@@ -67,10 +67,16 @@ build_humidity_chart = (data) ->
       } ]
     options:
       maintainAspectRatio: false
-      horizontalLine: [{
-        y: 40
-        style: "rgba(210, 150, 150, 0.5)"
-        text: "min"
+      levelAreas: [{
+        from: 0
+        to: 35
+        style: "rgba(210, 150, 150, 0.6)"
+        text: "dry"
+      },{
+        from: 80
+        to: 100
+        style: "rgba(210, 150, 150, 0.6)"
+        text: "wet"
       }]
       scales:
         xAxes: [
