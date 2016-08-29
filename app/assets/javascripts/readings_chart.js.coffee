@@ -67,16 +67,23 @@ build_humidity_chart = (data) ->
       } ]
     options:
       maintainAspectRatio: false
+      horizontalLine: [{
+        y: 40
+        style: "rgba(210, 150, 150, 0.5)"
+        text: "min"
+      }]
       scales:
         xAxes: [
           display: false
         ]
         yAxes: [
           ticks:
-            suggestedMin: 40
+            suggestedMin: 30
             suggestedMax: 90
             stepSize: 10
         ]
       legend:
         display: true
   )
+
+
