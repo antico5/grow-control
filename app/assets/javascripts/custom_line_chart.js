@@ -26,7 +26,7 @@ var limitAreaPlugin = {
         ctx.fillRect(startX, startY, width, height);
 
         if (area.text) {
-          ctx.fillText(area.text, startX, endY);
+          ctx.fillText(area.text, startX + 3, endY + 3);
         }
       }
     };
