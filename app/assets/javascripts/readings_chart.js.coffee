@@ -35,10 +35,21 @@ build_temperature_chart = (data) ->
         label: 'Temperature'
         data: data.temperatures
         fill: false
-        borderColor: "pink"
+        borderColor: "#aac"
       } ]
     options:
       maintainAspectRatio: false
+      levelAreas: [{
+        from: 0
+        to: 18
+        style: "rgba(210, 150, 150, 0.6)"
+        text: "Cold"
+      },{
+        from: 30
+        to: 50
+        style: "rgba(210, 150, 150, 0.6)"
+        text: "Hot"
+      }]
       scales:
         xAxes: [
           display: false
@@ -63,7 +74,7 @@ build_humidity_chart = (data) ->
         label: 'Humidity'
         data: data.humidities
         fill: false
-        borderColor: "lightblue"
+        borderColor: "#aca"
       } ]
     options:
       maintainAspectRatio: false
@@ -71,12 +82,12 @@ build_humidity_chart = (data) ->
         from: 0
         to: 35
         style: "rgba(210, 150, 150, 0.6)"
-        text: "dry"
+        text: "Dry"
       },{
         from: 80
         to: 100
         style: "rgba(210, 150, 150, 0.6)"
-        text: "wet"
+        text: "Wet"
       }]
       scales:
         xAxes: [
