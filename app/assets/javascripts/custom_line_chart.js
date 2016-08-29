@@ -5,7 +5,6 @@ var limitAreaPlugin = {
     var canvas = chartInstance.chart;
     var ctx = canvas.ctx;
 
-    console.log(chartInstance);
     var areas = chartInstance.options.levelAreas;
     if (areas) {
       for(var i=0; i < areas.length; i++){
