@@ -5,6 +5,7 @@ gem 'rails', '~> 4'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'uglifier'
+gem 'coffee-rails'
 
 gem 'groupdate' # to group by days and weeks
 
