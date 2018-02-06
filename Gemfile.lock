@@ -70,7 +70,7 @@ GEM
     minitest (5.11.3)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
-    pg (1.0.0)
+    pg (0.21.0)
     pry (0.11.3)
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
@@ -137,7 +137,7 @@ DEPENDENCIES
   coffee-rails
   groupdate
   jquery-rails
-  pg
+  pg (~> 0)
   pry
   rails (~> 4)
   rails_12factor
